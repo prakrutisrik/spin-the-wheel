@@ -1,26 +1,218 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  --bg: #24163b;
+
+  --panel: #32214f;
+
+  --border: #5e468d;
+
+  --text: #f6ecd8;
+
+  --pink: #d68aac;
+
+  --purple: #8767c7;
+
+  --blue: #7f9fca;
+
+  --green: #91b88d;
+
+  --yellow: #d6b96b;
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body{
+
+width:100%;
+
+height:100%;
+
+overflow:hidden;
+
+background:linear-gradient(
+180deg,
+#312052,
+#24163b
+);
+
+color:var(--text);
+
+image-rendering:pixelated;
+
+}
+
+body{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+button{
+
+font-family:inherit;
+
+cursor:pointer;
+
+}
+
+input{
+
+font-family:inherit;
+
+outline:none;
+
+}
+.arcade-frame{
+
+width:min(1500px,95vw);
+
+height:min(900px,95vh);
+
+background:var(--panel);
+
+border:8px solid var(--border);
+
+border-radius:22px;
+
+position:relative;
+
+overflow:hidden;
+
+box-shadow:
+
+0 0 0 6px #221537,
+
+0 0 0 12px #4b3574;
+
+}
+.pixel-bg{
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+overflow:hidden;
+
+}
+
+.pixel-star{
+
+position:absolute;
+
+width:4px;
+
+height:4px;
+
+background:#f6ecd8;
+
+opacity:.4;
+
+animation:twinkle 5s infinite;
+
+}
+
+.pixel-star::before{
+
+content:"";
+
+position:absolute;
+
+left:-4px;
+
+top:0;
+
+width:12px;
+
+height:4px;
+
+background:#f6ecd8;
+
+}
+
+.pixel-star::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:-4px;
+
+width:4px;
+
+height:12px;
+
+background:#f6ecd8;
+
+}
+
+@keyframes twinkle{
+
+0%{
+
+opacity:.25;
+
+transform:scale(1);
+
+}
+
+50%{
+
+opacity:.8;
+
+transform:scale(1.4);
+
+}
+
+100%{
+
+opacity:.25;
+
+transform:scale(1);
+
+}
+
+}
+.header{
+
+height:80px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 40px;
+
+border-bottom:6px solid var(--border);
+
+font-size:24px;
+
+letter-spacing:2px;
+
+background:#2a1b46;
+
+}
+* {
+  image-rendering: pixelated;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Silkscreen", monospace;
 }
